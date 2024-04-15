@@ -1,6 +1,6 @@
 const express = require('express');
 const Menu = require('../models/Menu');
-const { getAllMenuItems, postMenuItem, deleteMenuItem } = require('../controller/menuControllers');
+const { getAllMenuItems, postMenuItem, deleteMenuItem, getMenuItem, updateMenuItem } = require('../controller/menuControllers');
 
 const router = express.Router();
 
@@ -12,6 +12,10 @@ router.get('/',getAllMenuItems)
 router.post('/', postMenuItem)
 // delete a menu items
 router.delete('/:id', deleteMenuItem)
+// get a menu item
+router.get('/:id',  getMenuItem)
+// update a menu item
+router.patch('/:id',  updateMenuItem)
 
 
 
