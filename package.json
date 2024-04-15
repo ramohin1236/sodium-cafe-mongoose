@@ -17,6 +17,7 @@
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.1",
     "nodemon": "^3.1.0",
-    "randombytes": "^2.1.0"
+    "randombytes": "^2.1.0",
+    "stripe": "^15.1.0"
   }
 }
