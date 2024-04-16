@@ -48,12 +48,12 @@ const getAdmin= async(req,res)=>{
    const query = {email: email}
     try{
         const user = await User.findOne(query)
-        if(email !==req.decoded.email){
-            return  res.status(403).json({message: "User deleted successfully!"})
+        if(email !== req.decoded.email){
+            return  res.status(403).json({message: "Forbidded access!"})
         }
         let admin = false;
         if(user){
-            admin =user?.role === "role"
+            admin =user?.role === "admin"
         }
         res.status(200).json({admin})
     }

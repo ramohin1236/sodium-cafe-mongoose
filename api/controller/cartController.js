@@ -1,5 +1,5 @@
 const Carts = require('../models/Carts');
-const { rawListeners } = require('../models/Menu');
+
 
 const getCartsByEmail = async(req,res)=>{
     try{ 
@@ -17,20 +17,20 @@ const getCartsByEmail = async(req,res)=>{
 
 
 const addToCart =async(req,res)=>{
-const { menuItemId, name,recipe,price,quantity,email}=req.body;
+const {image,menuItemId, name,recipe,price,quantity,email}=req.body;
 try{
-   const existingCartItems = await Carts.findOne({menuItemId})
-   if(existingCartItems){
-    return res.status(400).json({message: "product already exists in the cart!"})
-   }
+   
    const cartItem = await Carts.create({
+  
     menuItemId, 
     name,
     recipe,
     price,
     quantity,
-    email
+    email,
+    image
    })
+   console.log(cartItem);
    res.status(201).json(cartItem)
 }catch(error){
     res.status(500).json({message:error.message})
